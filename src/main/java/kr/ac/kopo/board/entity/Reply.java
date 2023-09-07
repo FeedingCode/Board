@@ -22,7 +22,4 @@ public class Reply extends BaseEntity{
 
     @ManyToOne//board1 reply 다
     private Board board; // board_bno(board 테이블의 pk)
-
-
-
 }
