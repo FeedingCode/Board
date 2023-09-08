@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="setContent(content)">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .header{
+      width: 100vw;
+      height: 20vh;
+      background-color: antiquewhite;
+    }
+    .content{
+      width: 100vw;
+      height: 70vh;
+      background-color: burlywood;
+    }
+    .footer{
+      width: 100vw;
+      height: 10vh;
+      background-color: deepskyblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <hi>HEADER</hi>
+  </div>
+
+  <div class="content">
+    <th:block th:replace="${content}"></th:block>
+  </div>
+
+  <div class="footer">
+    <hi>FOOTER</hi>
+  </div>
+</body>
+</th:block>
+</html>
