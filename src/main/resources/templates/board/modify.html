@@ -3,14 +3,14 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <th:block th:replace="~{/layout/basic :: setContent(~{this::content} )}">
   <th:block th:fragment="content">
-    <h1 class="mt-4"> GuestBook Modify Page </h1>
-    <form action="/guestbook/modify" method="post">
+    <h1 class="mt-4"> 보드 Modify Page </h1>
+    <form action="/board/modify" method="post">
       <input type="hidden" name="page" th:value="${requestDTO.page}">
       <input type="hidden" name="type" th:value="${requestDTO.type}">
       <input type="hidden" name="keyword" th:value="${requestDTO.keyword}">
       <div class="form-group">
-        <label>gno</label>
-        <input type="text" class="form-control" name="gno" th:value="${dto.gno}" readonly>
+        <label>bno</label>
+        <input type="text" class="form-control" name="bno" th:value="${dto.bno}" readonly>
       </div>
       <div class="form-group">
         <label>title</label>
@@ -22,7 +22,7 @@
       </div>
       <div class="form-group">
         <label>writer</label>
-        <input type="text" class="form-control" name="writer" th:value="${dto.writer}" readonly>
+        <input type="text" class="form-control" name="writer" th:value="${dto.writerName}" readonly>
       </div>
       <div class="form-group">
         <label>regDate</label>
@@ -45,7 +45,7 @@
   var actionForm = $("form");
   $(".removeBtn").click(function (){
     actionForm
-            .attr("action", "/guestbook/remove")
+            .attr("action", "/board/remove")
             .attr("method", "post")
             .submit();
   })
@@ -55,7 +55,7 @@
       return;
     }
     actionForm
-            .attr("action", "/guestbook/modify")
+            .attr("action", "/board/modify")
             .attr("method", "post")
             .submit();
   })
@@ -71,7 +71,7 @@
 
 
     actionForm
-            .attr("action", "/guestbook/list")
+            .attr("action", "/board/list")
             .attr("method", "get")
             .submit();
   })
