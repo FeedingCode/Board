@@ -20,6 +20,6 @@ public class Reply extends BaseEntity{
 
     private String replyer;
 
-    @ManyToOne//board1 reply 다
+    @ManyToOne(fetch = FetchType.LAZY)//board 1:  reply 다
     private Board board; // board_bno(board 테이블의 pk)
 }
