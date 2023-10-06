@@ -207,6 +207,37 @@
         }
       });
     });
+
+    $(".replyModify").click(function (){
+      var rno = $("input[name='rno']").val();
+
+      var reply = {
+        rno: rno,
+        bno: bno,
+        text: $('input[name="replyText"]').val(),
+        replyer: $('input[name="replyer"]').val()
+      }
+      console.log(reply);
+
+      $.ajax({
+        url: '/replies/' + rno,
+        method: 'put',
+        data: JSON.stringify(reply),
+        contentType: 'application/json; charset=utf-8',
+        success: function (result){
+          console.log("Modify 결과 값: " + result);
+          if (result === 'success') {
+            alert("댓글이 수정댐!");
+            modal.hide();
+            loadJSONData();
+          }
+
+        }
+
+      })
+    });
+
+
   });
 
 
